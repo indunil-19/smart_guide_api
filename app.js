@@ -5,7 +5,10 @@ const path=require('path')
 const mongoose = require('mongoose')
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
+const helmet = require('helmet');
 
+
+app.use(helmet({contentSecurityPolicy: false,}));
 
 
 app.all( "*", function(req, res, next) {
