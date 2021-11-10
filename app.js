@@ -11,16 +11,6 @@ const helmet = require('helmet');
 app.use(helmet({contentSecurityPolicy: false,}));
 
 
-app.all( "*", function(req, res, next) {
-    console.log("sd")
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-    next()
- });
-
-
-
 
 const mongouri="mongodb+srv://dbUser:d61NVqHI6EhQKkFv@cluster0.3k6ej.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 // d61NVqHI6EhQKkFv dbUser
