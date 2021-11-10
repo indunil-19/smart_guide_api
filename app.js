@@ -6,6 +6,17 @@ const mongoose = require('mongoose')
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
+
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
+
+
+
 const mongouri="mongodb+srv://dbUser:d61NVqHI6EhQKkFv@cluster0.3k6ej.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 // d61NVqHI6EhQKkFv dbUser
 mongoose.connect(mongouri,{
