@@ -1,5 +1,7 @@
 const express=require('express');
 const UserController=require("../controller/userController")
+const AdminController = require('../controller/adminController');
+
 const router=express.Router();
 
 const ifUserNotLoggedIn=require("../middleware/ifUserNotLoggedIn")
@@ -8,6 +10,7 @@ const ifTraveller=require("../middleware/ifTraveller")
 
 router.get('/getTravelPlans',ifUserNotLoggedIn, ifTraveller, UserController.getTravelPlans)
 router.get('/getPublicTravelPlans',ifUserNotLoggedIn, ifTraveller, UserController.getPublicPlans)
+router.get('/getProvinceData/:pid',ifUserNotLoggedIn, ifTraveller,AdminController.getProvinceData)
 
 router.post('/getReview',ifUserNotLoggedIn,ifTraveller, UserController.getReviews)
 router.post('/updateTravelPlan',ifUserNotLoggedIn, ifTraveller, UserController.updateTravelPlan)
